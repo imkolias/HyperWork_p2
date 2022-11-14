@@ -1,7 +1,7 @@
 # This is my second project on HyperSkill, WebScrapper
 # it should parsing Nature.com and select user selected topics
 # then it should download it and save topics texts and save in
-# files 
+# files
 
 import os
 import requests
@@ -27,7 +27,6 @@ for page_number in range(1, user_page_count+1):
         os.mkdir(f"Page_{page_number}")
 
     url = f"https://www.nature.com/nature/articles?sort=PubDate&year=2020&page={page_number}"
-    print(url, "<----")
 
     # check input url and go download and process if al ok
     if download_content(url):
@@ -56,5 +55,5 @@ for page_number in range(1, user_page_count+1):
                 #     os.mkdir(f"Page_{page_number}")
                 file = open(f"Page_{page_number}\{sci_title}.txt", "wb")
                 if file.write(bin_text):
-                    print("ok")
+                    print("article saved")
                 file.close()
